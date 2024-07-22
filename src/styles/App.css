@@ -1,3 +1,10 @@
+body {
+	background-image: url("../../assets/wallpaper.jpg");
+	background-size: contain;
+	background-size: cover;
+	background-repeat: repeat;
+}
+
 #root {
 	display: flex;
 	flex-direction: column;
@@ -16,6 +23,7 @@
 
 .card {
 	display: flex;
+	background-color: rgba(255, 255, 255, 0.25);
 	justify-content: center;
 	flex-direction: column;
 	width: clamp(200px, 2vw + 21rem, 400px);
@@ -26,4 +34,8 @@
 .card>* {
 	width: 50%;
 	align-self: center;
+}
+
+.card>h3 {
+	color: white;
 }
