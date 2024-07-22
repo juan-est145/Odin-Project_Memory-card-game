@@ -1,0 +1,13 @@
+#root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cardsContainer {
+	display: grid;
+	width: 100%;
+	justify-items: center;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
