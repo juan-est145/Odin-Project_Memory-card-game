@@ -16,11 +16,8 @@ function App() {
       <h1>Estoy aquí</h1>
       <Cards
         cardList={pokemon}
-        callBack={(e) => {
-          let originalName = e.target.dataset.name;
-          let name = originalName.charAt(0) + originalName.slice(1).toLowerCase();
-          alert(`You clicked on ${name}`)
-        }}
+        callBack={(e) => alert(`You clicked on ${e.currentTarget.dataset.name}`)
+        }
       ></Cards>
     </>
   )
