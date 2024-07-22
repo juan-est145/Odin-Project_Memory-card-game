@@ -1,11 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import Cards from './cards';
 
 function App() {
-  return (<Cards
-    cardList={getPokemon()}
-    callBack={() => onclick(alert("Hola"))}
-  ></Cards>);
+  const [pokemon, setPokemon] = useState([]);
+
+  useEffect(() => {
+    getPokemon().then((pokeArray) => {
+      if (pokeArray)
+        setPokemon(pokeArray);
+    })
+  }, []);
+
+  return (
+    <>
+      <h1>Estoy aquí</h1>
+      <Cards
+        cardList={pokemon}
+        callBack={() => alert("You clicked me")}
+      ></Cards>
+    </>
+  )
 }
 
 async function getPokemon() {
@@ -16,7 +30,7 @@ async function getPokemon() {
   const values = randomIds(pokeRanges.firstNumber, pokeRanges.lastNumber);
   try {
     const pokemonList = await Promise.all(values.map(async (element) => {
-      const response = await fetch(`https://pokeapi.co/api/v2/ability/${element}/`, { mode: "cors" });
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${element}/`, { mode: "cors" });
       if (!response.ok)
         throw new Error(`API request failed with code ${response.status}`);
       const pokeData = await response.json();
