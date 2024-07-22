@@ -6,8 +6,24 @@
 }
 
 .cardsContainer {
-	display: grid;
+	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
-	justify-items: center;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: clamp(200px, 2vw + 1rem, 5rem);
+	width: 400px;
+	text-align: center;
+}
+
+.card>* {
+	width: 50%;
+	align-self: center;
 }
