@@ -16,7 +16,11 @@ function App() {
       <h1>Estoy aquí</h1>
       <Cards
         cardList={pokemon}
-        callBack={() => alert("You clicked me")}
+        callBack={(e) => {
+          let originalName = e.target.dataset.name;
+          let name = originalName.charAt(0) + originalName.slice(1).toLowerCase();
+          alert(`You clicked on ${name}`)
+        }}
       ></Cards>
     </>
   )
@@ -34,9 +38,8 @@ async function getPokemon() {
       if (!response.ok)
         throw new Error(`API request failed with code ${response.status}`);
       const pokeData = await response.json();
-      return (new PokemonData(pokeData.id, pokeData.name, pokeData.sprites.front_default));
+      return (new PokemonData(pokeData.id, pokeData.name.toUpperCase(), pokeData.sprites.front_default));
     }));
-    console.log(pokemonList); //Erase this later
     return (pokemonList);
   } catch (error) {
     console.error("Failed to fetch Pokemon data", error);
