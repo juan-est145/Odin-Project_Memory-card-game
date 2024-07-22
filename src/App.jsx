@@ -21,6 +21,8 @@ function App() {
           const pokemonCry = new Audio(e.currentTarget.dataset.sound);
           alert(`You clicked on ${e.currentTarget.dataset.name}`);
           pokemonCry.play();
+          const pokemonCopy = pokemon.map((element) => element);
+          setPokemon(shuffle(pokemonCopy));
         }}
       ></Cards>
     </>
@@ -52,12 +54,16 @@ function randomIds(firstNumber, lastNumber, numSelect = 12) {
   const allValues = [];
   for (let i = firstNumber; i <= lastNumber; i++)
     allValues.push(i);
-
-  for (let currIndex = allValues.length - 1; currIndex > 0; currIndex--) {
-    let randomIndex = Math.floor(Math.random() * currIndex);
-    [allValues[currIndex], allValues[randomIndex]] = [allValues[randomIndex], allValues[currIndex]];
-  }
+  shuffle(allValues);
   return (allValues.slice(0, numSelect));
+}
+
+function shuffle(array) {
+  for (let currIndex = array.length - 1; currIndex > 0; currIndex--) {
+    let randomIndex = Math.floor(Math.random() * currIndex);
+    [array[currIndex], array[randomIndex]] = [array[randomIndex], array[currIndex]];
+  }
+  return (array);
 }
 
 class PokemonData {
