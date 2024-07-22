@@ -21,8 +21,7 @@ function App() {
           const pokemonCry = new Audio(e.currentTarget.dataset.sound);
           alert(`You clicked on ${e.currentTarget.dataset.name}`);
           pokemonCry.play();
-          const pokemonCopy = pokemon.map((element) => element);
-          setPokemon(shuffle(pokemonCopy));
+          setPokemon(shuffle([...pokemon]));
         }}
       ></Cards>
     </>
