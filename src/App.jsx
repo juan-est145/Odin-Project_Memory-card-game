@@ -17,8 +17,11 @@ function App() {
       <h1>Estoy aquí</h1>
       <Cards
         cardList={pokemon}
-        callBack={(e) => alert(`You clicked on ${e.currentTarget.dataset.name}`)
-        }
+        callBack={(e) => {
+          const pokemonCry = new Audio(e.currentTarget.dataset.sound);
+          alert(`You clicked on ${e.currentTarget.dataset.name}`);
+          pokemonCry.play();
+        }}
       ></Cards>
     </>
   )
@@ -36,7 +39,8 @@ async function getPokemon() {
       if (!response.ok)
         throw new Error(`API request failed with code ${response.status}`);
       const pokeData = await response.json();
-      return (new PokemonData(pokeData.id, pokeData.name.toUpperCase(), pokeData.sprites.front_default));
+      return (new PokemonData(
+        pokeData.id, pokeData.name.toUpperCase(), pokeData.sprites.front_default, pokeData.cries.latest));
     }));
     return (pokemonList);
   } catch (error) {
@@ -57,10 +61,11 @@ function randomIds(firstNumber, lastNumber, numSelect = 12) {
 }
 
 class PokemonData {
-  constructor(id, name, img) {
+  constructor(id, name, img, sound) {
     this.id = id;
     this.name = name;
     this.img = img;
+    this.sound = sound;
   }
 }
 
