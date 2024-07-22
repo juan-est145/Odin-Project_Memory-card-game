@@ -18,9 +18,9 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	width: clamp(200px, 2vw + 1rem, 5rem);
-	width: 400px;
+	width: clamp(200px, 2vw + 21rem, 400px);
 	text-align: center;
+	outline: solid black;
 }
 
 .card>* {
