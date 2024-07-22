@@ -1,6 +1,6 @@
 export default function Cards({ cardList, callBack }) {
 	return (
-		<div className="cardsContainer">
+		<main className="cardsContainer">
 			{cardList.map((element) => {
 				let name = element.name.charAt(0) + element.name.slice(1).toLowerCase();
 				
@@ -17,6 +17,6 @@ export default function Cards({ cardList, callBack }) {
 				</div>)
 			} 	
 			)}
-		</div>);
+		</main>);
 }
 
