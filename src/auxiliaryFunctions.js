@@ -53,6 +53,15 @@ export function areSoundsActive() {
 	return (false);
 }
 
+export function stopAllSounds () {
+	if (currentSounds.size <= 0)
+		return ;
+	currentSounds.forEach((element) => {
+		element.pause();
+	});
+	currentSounds.clear();
+}
+
 class PokemonData {
 	constructor(id, name, img, sound) {
 		this.id = id;

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { playSound, areSoundsActive } from "./auxiliaryFunctions";
+import { playSound, areSoundsActive, stopAllSounds } from "./auxiliaryFunctions";
 import "./styles/components.css"
 
 export function Cards({ cardList, callBack }) {
@@ -42,14 +42,16 @@ export function Modal() {
 	}, []);
 
 	return (
-		<dialog ref={dialogRef} onClick={() => {
-			if (!areSoundsActive())
+		<dialog ref={dialogRef} onClick={(e) => {
+			if (!areSoundsActive() && e.target.tagName !== "BUTTON")
 				playSound("assets/menuSong.flac")
 		}}>
 			<h1>Hola caracola</h1>
 			<button onClick={() => {
-				if (dialogRef.current)
+				if (dialogRef.current) {
+					stopAllSounds();
 					dialogRef.current.close();
+				}
 			}}>Close me</button>
 		</dialog>
 	)
