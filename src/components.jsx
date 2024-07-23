@@ -59,14 +59,14 @@ export function Modal() {
 					If you click on a previously clicked character, you will lose and the
 					game will bring new pokemon.
 				</p>
-				<p>Good luck</p>
+				<p>Good luck!</p>
 			</section>
 			<button onClick={() => {
 				if (dialogRef.current) {
 					stopAllSounds();
 					dialogRef.current.close();
 				}
-			}}>Close me</button>
+			}}>Close</button>
 		</dialog>
 	)
 }

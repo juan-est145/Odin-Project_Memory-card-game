@@ -40,6 +40,19 @@
 	overflow: auto;
 }
 
+.startDialog>button:first-of-type {
+	--size-btn: 60px;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 0.5em;
+	margin-right: 0.5em;
+	min-width: var(--size-btn);
+	min-height: var(--size-btn);
+	border-radius: 50%;
+}
+
 .modalText {
 	display: flex;
 	flex-direction: column;
@@ -50,6 +63,8 @@
 
 .modalText>img {
 	width: 25rem;
+	width: 75%;
+	width: clamp(50%, 50rem ,75%);
 }
 
 .modalText>h1,
@@ -61,6 +76,10 @@
 
 .modalText>p {
 	margin: 0.5em;
+}
+
+.modalText>p:first-of-type {
+	font-size: 1.3rem;
 }
 
 .modalText>:last-child {
