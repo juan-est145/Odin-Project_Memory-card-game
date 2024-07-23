@@ -11,11 +11,13 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
+    if (score !== 0)
+      return ;
     getPokemon().then((pokeArray) => {
       if (pokeArray)
         setPokemon(pokeArray);
     })
-  }, []);
+  }, [score]);
 
   return (
     <>
