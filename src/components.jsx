@@ -61,6 +61,7 @@ export function Modal() {
 			<button className="exitBtn" onClick={() => {
 				if (dialogRef.current) {
 					stopAllSounds();
+					playSound("assets/closeSound.mp3")
 					dialogRef.current.close();
 				}
 			}}>X</button>
