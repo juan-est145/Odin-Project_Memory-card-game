@@ -1,4 +1,4 @@
-export default function Cards({ cardList, callBack }) {
+export function Cards({ cardList, callBack }) {
 	return (
 		<main className="cardsContainer">
 			{cardList.map((element) => {
@@ -20,3 +20,11 @@ export default function Cards({ cardList, callBack }) {
 		</main>);
 }
 
+export function Score({score, highScore}) {
+	return (
+		<div className="scores">
+			<span>Score: {score}</span>
+			<span>Best score: {highScore}</span>
+		</div>
+	)
+}
