@@ -51,6 +51,7 @@ export function Modal() {
 			<section className="modalText">
 				<h1>Welcome to the Poke-card game</h1>
 				<h4>(Please, click anywhere but the close button to play music)</h4>
+				<img src="../assets/pokemon-sapphire-kyogre.gif" alt="Pokemon sapphire gif"/>
 				<p>
 					In this game, you must click on all the pokemon without clicking
 					on any one of them more than once. Everytime you click on
@@ -58,9 +59,7 @@ export function Modal() {
 					If you click on a previously clicked character, you will lose and the
 					game will bring new pokemon.
 				</p>
-				<p>
-					Good luck
-				</p>
+				<p>Good luck</p>
 			</section>
 			<button onClick={() => {
 				if (dialogRef.current) {

@@ -35,17 +35,34 @@
 }
 
 .startDialog {
-	width: 75vw;
-	height: 75vh;
-	overflow:scroll
-	/*display: flex;
+	min-width: 75vw;
+	min-height: 75vh;
+	overflow: auto;
+}
+
+.modalText {
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;*/
+	align-items: center;
+	padding: 0.5em;
+}
+
+.modalText>img {
+	width: 25rem;
 }
 
 .modalText>h1,
 .modalText>h4 {
 	text-align: center;
 	font-size: 1.4rem;
+	margin: 0.2em;
+}
+
+.modalText>p {
+	margin: 0.5em;
+}
+
+.modalText>:last-child {
+	font-size: 2rem;
 }
