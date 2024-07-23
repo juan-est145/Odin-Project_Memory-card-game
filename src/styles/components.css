@@ -28,8 +28,24 @@
 
 .scores {
 	display: flex;
-	flex-direction: column;	
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.5rem;
+}
+
+.startDialog {
+	width: 75vw;
+	height: 75vh;
+	overflow:scroll
+	/*display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;*/
+}
+
+.modalText>h1,
+.modalText>h4 {
+	text-align: center;
+	font-size: 1.4rem;
 }

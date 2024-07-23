@@ -36,17 +36,32 @@ export function Score({ score, highScore }) {
 export function Modal() {
 	const dialogRef = useRef(null);
 	useEffect(() => {
+		return;
+		/*Delete later the return statement
 		if (dialogRef.current) {
 			dialogRef.current.showModal();
-		}
+		}*/
 	}, []);
-
+	//Need to delete later the open property
 	return (
-		<dialog ref={dialogRef} onClick={(e) => {
+		<dialog ref={dialogRef} className="startDialog" open onClick={(e) => {
 			if (!areSoundsActive() && e.target.tagName !== "BUTTON")
 				playSound("assets/menuSong.flac")
 		}}>
-			<h1>Hola caracola</h1>
+			<section className="modalText">
+				<h1>Welcome to the Poke-card game</h1>
+				<h4>(Please, click anywhere but the close button to play music)</h4>
+				<p>
+					In this game, you must click on all the pokemon without clicking
+					on any one of them more than once. Everytime you click on
+					a pokemon, the cards will re-shuffle so as to make it a challenge.
+					If you click on a previously clicked character, you will lose and the
+					game will bring new pokemon.
+				</p>
+				<p>
+					Good luck
+				</p>
+			</section>
 			<button onClick={() => {
 				if (dialogRef.current) {
 					stopAllSounds();
