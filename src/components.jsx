@@ -13,7 +13,8 @@ export function Cards({ cardList, callBack }) {
 					data-name={name}
 					data-sound={element.sound}
 					className="card"
-					onClick={callBack}>
+					onClick={callBack}
+					tabIndex="0">
 					<h3>{element.name}</h3>
 					<img
 						src={element.img}
