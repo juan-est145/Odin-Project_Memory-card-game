@@ -8,7 +8,7 @@ export function Cards({ cardList, callBack }) {
 			{cardList.map((element) => {
 				let name = element.name.charAt(0) + element.name.slice(1).toLowerCase();
 
-				return (<div
+				return (<button
 					key={element.id}
 					data-name={name}
 					data-sound={element.sound}
@@ -18,7 +18,7 @@ export function Cards({ cardList, callBack }) {
 					<img
 						src={element.img}
 						alt={`Front facing sprite of ${name}`} />
-				</div>)
+				</button>)
 			}
 			)}
 		</section>);
