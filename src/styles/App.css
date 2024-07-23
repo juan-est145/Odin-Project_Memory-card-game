@@ -1,10 +1,10 @@
 @font-face {
 	font-family: "Pokemon";
-	src: url("../../assets/font/Pokemon\ Hollow.ttf");
+	src: url("../../font/Pokemon\ Hollow.ttf");
 }
 
 body {
-	background-image: url("../../assets/images/wallpaper.jpg");
+	background-image: url("../../images/wallpaper.jpg");
 	background-size: contain;
 	background-size: cover;
 	background-repeat: repeat;

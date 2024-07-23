@@ -44,12 +44,12 @@ export function Modal() {
 	return (
 		<dialog ref={dialogRef} className="startDialog" onClick={(e) => {
 			if (!areSoundsActive() && e.target.tagName !== "BUTTON")
-				playSound("assets/sounds/menuSong.flac")
+				playSound("sounds/menuSong.flac")
 		}}>
 			<section className="modalText">
 				<h1>Welcome to the Poke-card game</h1>
 				<h4>(Please, click anywhere but the close button to play music)</h4>
-				<img src="../assets/images/pokemon-sapphire-kyogre.gif" alt="Pokemon sapphire gif"/>
+				<img src="../images/pokemon-sapphire-kyogre.gif" alt="Pokemon sapphire gif"/>
 				<p>
 					In this game, you must click on all the pokemon without clicking
 					on any one of them more than once. Everytime you click on
@@ -62,7 +62,7 @@ export function Modal() {
 			<button className="exitBtn" onClick={() => {
 				if (dialogRef.current) {
 					stopAllSounds();
-					playSound("assets/sounds/closeSound.mp3")
+					playSound("sounds/closeSound.mp3")
 					dialogRef.current.close();
 				}
 			}}>X</button>
