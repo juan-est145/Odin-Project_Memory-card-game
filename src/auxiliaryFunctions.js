@@ -44,7 +44,7 @@ export function playSound(src) {
 		console.error("Error playing sound:", error);
 		currentSounds.delete(sound);
 	});
-	sound.onended(() => currentSounds.delete(sound));
+	sound.onended = () => currentSounds.delete(sound);
 }
 
 export function areSoundsActive() {
