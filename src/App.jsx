@@ -33,8 +33,9 @@ function App() {
           cardList={pokemon}
           callBack={(e) => {
             playSound(e.currentTarget.dataset.sound);
-            handleGame(e.currentTarget.dataset.name, selectedCards, score, bestScore, setScore, setBestScore);
-            setPokemon(shuffle([...pokemon]));
+            let mistake = handleGame(e.currentTarget.dataset.name, selectedCards, score, bestScore, setScore, setBestScore);
+            if (!mistake)
+              setPokemon(shuffle([...pokemon]));
           }}
         ></Cards>
       </main>
@@ -50,10 +51,11 @@ function handleGame(currentCard, cardsSelected, score, highScore, scoreCallbck, 
     if (score > highScore)
       highScoreCallbck(score);
     scoreCallbck(0);
-    return;
+    return (true);
   }
   cardsSelected.push(currentCard);
   scoreCallbck(score + 1);
+  return (false);
 }
 
 export default App
