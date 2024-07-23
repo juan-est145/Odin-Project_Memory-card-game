@@ -19,30 +19,14 @@ body {
 	align-items: center;
 }
 
-.cardsContainer {
-	display: flex;
-	flex-wrap: wrap;
+header {
 	width: 100%;
-	gap: 20px;
-	justify-content: space-between;
+	display: flex;
+	justify-content: space-evenly;
 	align-items: center;
 }
 
-.card {
-	display: flex;
-	background-color: rgba(255, 255, 255, 0.25);
-	justify-content: center;
-	flex-direction: column;
-	width: clamp(200px, 2vw + 21rem, 400px);
+header>h1 {
+	flex-grow: 1;
 	text-align: center;
-	outline: solid black;
-}
-
-.card>* {
-	width: 50%;
-	align-self: center;
-}
-
-.card>h3 {
-	color: white;
 }

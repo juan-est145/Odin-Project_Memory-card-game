@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <header>
-        <h1>Estoy aquí</h1>
+        <h1>Poke Card</h1>
         <Score score={score} highScore={bestScore}></Score>
       </header>
       <Cards
