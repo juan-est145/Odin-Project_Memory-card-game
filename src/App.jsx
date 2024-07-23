@@ -27,7 +27,6 @@ function App() {
         cardList={pokemon}
         callBack={(e) => {
           playSound(e.currentTarget.dataset.sound);
-          //alert(`You clicked on ${e.currentTarget.dataset.name}`);
           handleGame(e.currentTarget.dataset.name, selectedCards, score, bestScore, setScore, setBestScore);
           setPokemon(shuffle([...pokemon]));
         }}
