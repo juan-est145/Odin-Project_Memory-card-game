@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     if (score !== 0)
-      return ;
+      return;
     getPokemon().then((pokeArray) => {
       if (pokeArray)
         setPokemon(pokeArray);
@@ -57,7 +57,5 @@ function handleGame(currentCard, cardsSelected, score, highScore, scoreCallbck, 
   cardsSelected.push(currentCard);
   scoreCallbck(score + 1);
 }
-
-
 
 export default App
