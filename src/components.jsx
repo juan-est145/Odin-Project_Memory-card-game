@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { playSound, areSoundsActive } from "./generatePokemon";
 import "./styles/components.css"
 
 export function Cards({ cardList, callBack }) {
@@ -35,12 +36,16 @@ export function Score({ score, highScore }) {
 export function Modal() {
 	const dialogRef = useRef(null);
 	useEffect(() => {
-		if (dialogRef.current)
+		if (dialogRef.current) {
 			dialogRef.current.showModal();
+		}
 	}, []);
 
 	return (
-		<dialog ref={dialogRef}>
+		<dialog ref={dialogRef} onClick={() => {
+			if (!areSoundsActive())
+				playSound("assets/menuSong.flac")
+		}}>
 			<h1>Hola caracola</h1>
 			<button onClick={() => {
 				if (dialogRef.current)

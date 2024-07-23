@@ -1,3 +1,5 @@
+const currentSounds = new Set();
+
 export async function getPokemon() {
 	const pokeRanges = {
 		firstNumber: 252,
@@ -33,6 +35,22 @@ export function shuffle(array) {
 		[array[currIndex], array[randomIndex]] = [array[randomIndex], array[currIndex]];
 	}
 	return (array);
+}
+
+export function playSound(src) {
+	const sound = new Audio(src);
+	currentSounds.add(sound);
+	sound.play().catch(error => {
+		console.error("Error playing sound:", error);
+		currentSounds.delete(sound);
+	});
+	sound.onended(() => currentSounds.delete(sound));
+}
+
+export function areSoundsActive() {
+	if (currentSounds.size > 0)
+		return (true);
+	return (false);
 }
 
 class PokemonData {

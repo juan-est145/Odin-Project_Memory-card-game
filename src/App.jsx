@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Cards, Score, Modal } from './components';
-import { getPokemon, shuffle } from './generatePokemon';
+import { getPokemon, shuffle, playSound } from './generatePokemon';
 import "./styles/App.css";
 
 const selectedCards = [];
@@ -40,11 +40,6 @@ function App() {
       </main>
     </>
   )
-}
-
-function playSound(src) {
-  const sound = new Audio(src);
-  sound.play();
 }
 
 function handleGame(currentCard, cardsSelected, score, highScore, scoreCallbck, highScoreCallbck) {
