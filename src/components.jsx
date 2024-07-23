@@ -36,15 +36,12 @@ export function Score({ score, highScore }) {
 export function Modal() {
 	const dialogRef = useRef(null);
 	useEffect(() => {
-		return;
-		/*Delete later the return statement
 		if (dialogRef.current) {
 			dialogRef.current.showModal();
-		}*/
+		}
 	}, []);
-	//Need to delete later the open property
 	return (
-		<dialog ref={dialogRef} className="startDialog" open onClick={(e) => {
+		<dialog ref={dialogRef} className="startDialog" onClick={(e) => {
 			if (!areSoundsActive() && e.target.tagName !== "BUTTON")
 				playSound("assets/menuSong.flac")
 		}}>
