@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Cards, Score, Modal } from './components';
-import { getPokemon, shuffle, playSound } from './generatePokemon';
+import { getPokemon, shuffle, playSound } from './auxiliaryFunctions';
 import "./styles/App.css";
 
 const selectedCards = [];

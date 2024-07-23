@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { playSound, areSoundsActive } from "./generatePokemon";
+import { playSound, areSoundsActive } from "./auxiliaryFunctions";
 import "./styles/components.css"
 
 export function Cards({ cardList, callBack }) {
