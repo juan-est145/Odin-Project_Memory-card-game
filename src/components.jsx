@@ -66,7 +66,7 @@ export function Modal() {
 					stopAllSounds();
 					dialogRef.current.close();
 				}
-			}}>Close</button>
+			}}>X</button>
 		</dialog>
 	)
 }

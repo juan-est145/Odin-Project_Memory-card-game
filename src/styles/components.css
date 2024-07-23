@@ -51,6 +51,9 @@
 	min-width: var(--size-btn);
 	min-height: var(--size-btn);
 	border-radius: 50%;
+	border: none;
+	opacity: 0.5;
+	font-size: 2rem;
 }
 
 .modalText {
