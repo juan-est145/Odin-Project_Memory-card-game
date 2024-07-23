@@ -19,9 +19,11 @@ function App() {
     })
   }, [score]);
 
+  //The purpose of the placeHolder div is that the h1 element stays centered
   return (
     <>
       <header>
+        <div className='placeHolder'></div>
         <h1>Poke Card</h1>
         <Score score={score} highScore={bestScore}></Score>
       </header>
