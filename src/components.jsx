@@ -1,8 +1,9 @@
+import { useEffect, useRef } from "react";
 import "./styles/components.css"
 
 export function Cards({ cardList, callBack }) {
 	return (
-		<main className="cardsContainer">
+		<section className="cardsContainer">
 			{cardList.map((element) => {
 				let name = element.name.charAt(0) + element.name.slice(1).toLowerCase();
 
@@ -19,7 +20,7 @@ export function Cards({ cardList, callBack }) {
 				</div>)
 			}
 			)}
-		</main>);
+		</section>);
 }
 
 export function Score({ score, highScore }) {
@@ -28,5 +29,23 @@ export function Score({ score, highScore }) {
 			<span>Score: {score}</span>
 			<span>Best score: {highScore}</span>
 		</div>
+	)
+}
+
+export function Modal() {
+	const dialogRef = useRef(null);
+	useEffect(() => {
+		if (dialogRef.current)
+			dialogRef.current.showModal();
+	}, []);
+
+	return (
+		<dialog ref={dialogRef}>
+			<h1>Hola caracola</h1>
+			<button onClick={() => {
+				if (dialogRef.current)
+					dialogRef.current.close();
+			}}>Close me</button>
+		</dialog>
 	)
 }

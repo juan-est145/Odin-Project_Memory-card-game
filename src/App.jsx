@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Cards, Score } from './components';
+import { Cards, Score, Modal } from './components';
 import { getPokemon, shuffle } from './generatePokemon';
 import "./styles/App.css";
 
@@ -27,14 +27,17 @@ function App() {
         <h1>Poke Card</h1>
         <Score score={score} highScore={bestScore}></Score>
       </header>
-      <Cards
-        cardList={pokemon}
-        callBack={(e) => {
-          playSound(e.currentTarget.dataset.sound);
-          handleGame(e.currentTarget.dataset.name, selectedCards, score, bestScore, setScore, setBestScore);
-          setPokemon(shuffle([...pokemon]));
-        }}
-      ></Cards>
+      <main>
+        <Modal></Modal>
+        <Cards
+          cardList={pokemon}
+          callBack={(e) => {
+            playSound(e.currentTarget.dataset.sound);
+            handleGame(e.currentTarget.dataset.name, selectedCards, score, bestScore, setScore, setBestScore);
+            setPokemon(shuffle([...pokemon]));
+          }}
+        ></Cards>
+      </main>
     </>
   )
 }
