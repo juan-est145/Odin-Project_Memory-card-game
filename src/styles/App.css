@@ -21,15 +21,17 @@ body {
 
 header {
 	width: 100%;
+	gap: 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	text-wrap: nowrap;
 }
 
 .placeholder {
-	visibility: hidden;
 	/*The purpose of this element is to balance the header tag so that
 	the h1 tag gets centered*/
+	visibility: hidden;
 }
 
 header>h1,
