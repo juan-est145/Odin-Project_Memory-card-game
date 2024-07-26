@@ -83,7 +83,7 @@ export function StatusModal({ victory, setVictory }) {
 	let soundSrc = "sounds/defeatSong.flac";
 
 	if (victory) {
-		title = "Congratulations, you won";
+		title = "Congratulations, you won!!!";
 		imageData.imageSrc = "../images/victory.gif";
 		imageData.imageAlt = "Charmander and Ash from pokemon laughing";
 		soundSrc = "sounds/victorySong.flac";
