@@ -71,24 +71,36 @@ export function Modal() {
 }
 
 export function StatusModal({ victory, setVictory }) {
+	const modalRef = useRef(null);
+	if (victory === null)
+		return (null);
+
 	let title = "Oh oh, seems like you lost";
 	const imageData = {
 		imageSrc: "../images/defeat.gif",
 		imageAlt: "Pikachu crying while holding a bottle"
 	};
+	let soundSrc = "sounds/defeatSong.flac";
 
 	if (victory) {
 		title = "Congratulations, you won";
-		
-		
 		imageData.imageSrc = "../images/victory.gif";
 		imageData.imageAlt = "Charmander and Ash from pokemon laughing";
+		soundSrc = "sounds/victorySong.flac";
+	}
+	if (modalRef.current) {
+		stopAllSounds();
+		modalRef.current.showModal();
+		playSound(soundSrc);
 	}
 	return (
-		<dialog open className="statusModal">
+		<dialog ref={modalRef} className="statusModal">
 			<h1>{title}</h1>
 			<img src={imageData.imageSrc} alt={imageData.imageAlt} />
-			<button onClick={() => setVictory(null)}>Try again</button>
+			<button onClick={() => {
+				modalRef.current.close();
+				setVictory(null);
+			}}>Try again</button>
 		</dialog>
 	);
 }
