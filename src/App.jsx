@@ -4,6 +4,7 @@ import { getPokemon, shuffle, playSound } from './auxiliaryFunctions';
 import "./styles/App.css";
 
 const selectedCards = [];
+const totalCards = 12;
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
@@ -35,8 +36,8 @@ function App() {
           cardList={pokemon}
           callBack={(e) => {
             playSound(e.currentTarget.dataset.sound);
-            let mistake = handleGame(e.currentTarget.dataset.name, selectedCards, score, bestScore, setScore, setBestScore, setVictory);
-            if (!mistake)
+            let gameOver = handleGame(e.currentTarget.dataset.name, selectedCards, score, bestScore, setScore, setBestScore, setVictory);
+            if (!gameOver)
               setPokemon(shuffle([...pokemon]));
           }}
         ></Cards>
@@ -46,12 +47,16 @@ function App() {
 }
 
 function handleGame(currentCard, cardsSelected, score, highScore, scoreCallbck, highScoreCallbck, setVictory) {
-  if (cardsSelected.find((value) => value === currentCard)) {
+  let cardIsDuplicate = cardsSelected.find((value) => value === currentCard);
+
+  if (cardIsDuplicate || score === totalCards - 1) {
     while (cardsSelected.length > 0)
       cardsSelected.pop();
-    setVictory(false);
-    if (score > highScore)
+    cardIsDuplicate ? setVictory(false) : setVictory(true);
+    if (score > highScore && cardIsDuplicate)
       highScoreCallbck(score);
+    else if (!cardIsDuplicate)
+      highScoreCallbck(totalCards);
     scoreCallbck(0);
     return (true);
   }
