@@ -20,12 +20,7 @@ Then, if you wish to run the app in dev mode just type
 npm run dev
 ```
 
-Alternatively, you can run the app in preview mode with
+Alternatively, if you just want to preview the app, run 
 ```bash
-npm run preview 
-```
-
-Lastly, if you want to build the app, run
-```bash
-npm run build
+npm run build && npm run preview 
 ```
