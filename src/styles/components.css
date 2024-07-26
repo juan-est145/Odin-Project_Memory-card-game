@@ -9,7 +9,7 @@
 
 .card {
 	display: flex;
-	background-color: rgba(255, 255, 255, 0.25);
+	background-color: var(--card-color);
 	justify-content: center;
 	flex-direction: column;
 	width: clamp(200px, 2vw + 21rem, 400px);
@@ -19,7 +19,7 @@
 }
 
 .card:focus-visible{
-	background-color: rgba(255, 255, 255, 0.50);
+	background-color: var(--card-color-visible);
 }
 
 .card>* {
@@ -39,13 +39,15 @@
 	font-size: 1.5rem;
 }
 
-.startDialog {
+.startDialog,
+.statusModal {
 	width: 75vw;
 	min-height: 75vh;
 	overflow: auto;
 }
 
-.startDialog::backdrop {
+.startDialog::backdrop,
+.statusModal::backdrop {
 	background-color: black;
 	opacity: 0.75;
 }
@@ -75,10 +77,8 @@
 	color: blue;
 }
 
-.modalText>img {
-	width: 25rem;
-	width: 75%;
-	width: clamp(50%, 50rem ,75%);
+.modalText>img{
+	width: clamp(50%, 50rem, 75%);
 }
 
 .modalText>h1,
@@ -103,4 +103,24 @@
 
 .modalText>:last-child {
 	font-size: 2rem;
+}
+
+.statusModal {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.statusModal>button {
+	border: none;
+	cursor: pointer;
+	font-size: 2rem;
+	background-color: var(--card-color);
+	background-color: rgb(65, 47, 85);
+	color: white;
+}
+
+.statusModal>button:active {
+	background-color: black;
 }

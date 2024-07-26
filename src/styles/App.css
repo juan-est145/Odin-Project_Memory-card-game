@@ -4,6 +4,8 @@
 }
 
 body {
+	--card-color: rgba(255, 255, 255, 0.25);
+	--card-color-visible: rgba(255, 255, 255, 0.50);
 	background-image: url("../../images/wallpaper.jpg");
 	background-size: contain;
 	background-size: cover;
