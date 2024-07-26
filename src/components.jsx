@@ -49,7 +49,7 @@ export function Modal() {
 			<section className="modalText">
 				<h1>Welcome to the Poke-card game</h1>
 				<h4>(Please, click anywhere but the close button to play music)</h4>
-				<img src="../images/pokemon-sapphire-kyogre.gif" alt="Pokemon sapphire gif"/>
+				<img src="../images/pokemon-sapphire-kyogre.gif" alt="Pokemon sapphire gif" />
 				<p>
 					In this game, you must click on all the pokemon without clicking
 					on any one of them more than once. Everytime you click on
@@ -68,4 +68,27 @@ export function Modal() {
 			}}>X</button>
 		</dialog>
 	)
+}
+
+export function StatusModal({ victory, setVictory }) {
+	let title = "Oh oh, seems like you lost";
+	const imageData = {
+		imageSrc: "../images/defeat.gif",
+		imageAlt: "Pikachu crying while holding a bottle"
+	};
+
+	if (victory) {
+		title = "Congratulations, you won";
+		
+		
+		imageData.imageSrc = "../images/victory.gif";
+		imageData.imageAlt = "Charmander and Ash from pokemon laughing";
+	}
+	return (
+		<dialog open className="statusModal">
+			<h1>{title}</h1>
+			<img src={imageData.imageSrc} alt={imageData.imageAlt} />
+			<button onClick={() => setVictory(null)}>Try again</button>
+		</dialog>
+	);
 }
