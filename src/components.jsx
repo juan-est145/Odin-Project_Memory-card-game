@@ -100,6 +100,8 @@ export function StatusModal({ victory, setVictory }) {
 			<button onClick={() => {
 				modalRef.current.close();
 				setVictory(null);
+				stopAllSounds();
+				playSound("sounds/closeSound.mp3");
 			}}>Try again</button>
 		</dialog>
 	);
